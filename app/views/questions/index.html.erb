@@ -1,2 +1,4 @@
 <h1>Questions#index</h1>
-<h2><%=@questions.each {|question| question.title}%></h2>
+<%@questions_by_date.each do |question|%>
+<h2><%=question.title%></h2>
+<%end%>

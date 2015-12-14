@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Question.find_or_create(title: "Help with C++?")
-Question.find_or_create(title: "Help with Java?")
+Question.create(title: "Help with C++?", description: "What is a loop?")
+Question.create(title: "Help with Java?", description: "I dont know what var means!")

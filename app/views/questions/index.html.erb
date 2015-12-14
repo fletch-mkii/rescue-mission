@@ -1,4 +1,4 @@
 <h1>Questions#index</h1>
 <%@questions_by_date.each do |question|%>
-<h2><%=question.title%></h2>
+<h2><%= link_to question.title, question_path(question)%></h2>
 <%end%>

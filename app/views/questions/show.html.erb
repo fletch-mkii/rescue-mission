@@ -1,5 +1,4 @@
 <h1>Questions#show</h1>
-<%@questions.find(params[:id]) do |question|%>
-  <h2><%=question.title%></h2>
-  <h4><%=question.description%></h4>
-<%end%>
+<% question = @questions.find(params[:id]) %>
+<h2><%= question.title %></h2>
+<h4><%= question.description %></h4>

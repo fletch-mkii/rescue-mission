@@ -2,3 +2,5 @@
 <%@questions_by_date.each do |question|%>
 <h2><%= link_to question.title, question_path(question)%></h2>
 <%end%>
+
+<h2><%=link_to "Post New Question", new_question_path %></h2>

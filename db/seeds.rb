@@ -6,5 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Question.create(title: "Help with C++?", description: "What is a loop?")
-Question.create(title: "Help with Java?", description: "I dont know what var means!")
+valid_desc = ""
+150.times { valid_desc += "a" }
+Question.create(title: "This is a 40 character long question about C++???", description: valid_desc)
+Question.create(title: "This is a 40 character long question about Java???", description: valid_desc)

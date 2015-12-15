@@ -1,4 +1,20 @@
 <h1>Questions#show</h1>
-<% question = @questions.find(params[:id]) %>
-<h2><%= question.title %></h2>
-<h4><%= question.description %></h4>
+<h2><%= @question.title %></h2>
+<h4><%= @question.description %></h4>
+
+
+<%= form_for [@question, @answer] do |f| %>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

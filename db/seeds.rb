@@ -10,3 +10,7 @@ valid_desc = ""
 150.times { valid_desc += "a" }
 Question.create(title: "This is a 40 character long question about C++???", description: valid_desc)
 Question.create(title: "This is a 40 character long question about Java???", description: valid_desc)
+
+ans_desc = ""
+50.times {ans_desc += "b"}
+Answer.create(username: "bigboy", description: ans_desc, question_id: 1)

@@ -1,13 +1,8 @@
 class AnswersController < ApplicationController
   def index
-    @question = Question.find(params[:question_id])
+    @question = Question.find(params[:id])
     @answers = @question.answers
   end
-  #
-  # def new
-  #   @question = Question.find(params[:question_id])
-  #   @answer = Answer.new
-  # end
 
   def create
     @question = Question.find(params[:question_id])
@@ -16,7 +11,7 @@ class AnswersController < ApplicationController
 
     if @answer.save
       flash[:notice] = "Answer saved successfully."
-      redirect_to question_answers_path
+      redirect_to @question
     else
       flash[:notice] = "A username is required" if @answer.username.empty?
       flash[:notice] = "Description must be at least 50 characters long." if @answer.description.length < 50

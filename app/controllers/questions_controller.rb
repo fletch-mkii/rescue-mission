@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
   def index
-    @questions_by_date = Question.all.order(created_at: :desc)
+    @questions = Question.all.order(created_at: :desc)
   end
 
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers.order(created_at: :desc)
     @answer = Answer.new
   end
 

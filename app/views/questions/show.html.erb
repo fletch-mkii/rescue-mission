@@ -1,6 +1,14 @@
-<h1>Questions#show</h1>
-<h2><%= @question.title %></h2>
+<h1><%= @question.title %></h1>
 <h4><%= @question.description %></h4>
+
+<h1>Answers:</h1>
+<%@answers.each do |answer|%>
+  <li>
+    <h4><%= answer.description %></h4>
+    <p><%= answer.username %></p>
+  </li>
+  <br>
+<%end%>
 
 
 <%= form_for [@question, @answer] do |f| %>

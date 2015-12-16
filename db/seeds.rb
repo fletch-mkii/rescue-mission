@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-valid_desc = ""
-150.times { valid_desc += "a" }
-Question.create(title: "This is a 40 character long question about C++???", description: valid_desc)
-Question.create(title: "This is a 40 character long question about Java???", description: valid_desc)
+Question.create(title: "This is a 40 character long question about C++???", description: "a"*150)
+Question.create(title: "This is a 40 character long question about Java???", description: "z"*150)
 
-ans_desc = ""
-50.times {ans_desc += "b"}
-Answer.create(username: "bigboy", description: ans_desc, question_id: 1)
+Answer.create(username: "bigboy", description: "b"*50, question_id: 1)
+Answer.create(username: "lilboy", description: "c"*50, question_id: 1)
+Answer.create(username: "lilboy", description: "d"*50, question_id: 2)
+Answer.create(username: "lilboy", description: "e"*50, question_id: 2)
+Answer.create(username: "lilboy", description: "f"*50, question_id: 2)

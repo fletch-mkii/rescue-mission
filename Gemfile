@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
@@ -43,3 +44,21 @@ group :development do
   gem 'spring'
 end
 
+gem 'foundation-rails'
+group :development, :test do
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'coveralls', require: false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'valid_attribute'
+  gem 'shoulda-matchers'
+end
+
+group :production do
+  gem 'puma'
+  gem 'rails_12factor'
+end

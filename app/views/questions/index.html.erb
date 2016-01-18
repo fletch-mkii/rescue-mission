@@ -1,0 +1,6 @@
+<h1>Questions:</h1>
+<%@questions.each do |question|%>
+  <li><%= link_to question.title, question_path(question)%></li>
+<%end%>
+
+<h2><%=link_to "Post New Question", new_question_path %></h2>

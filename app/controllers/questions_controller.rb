@@ -20,9 +20,10 @@ class QuestionsController < ApplicationController
       flash[:notice] = "Question successfully submitted."
       redirect_to @question
     else
-      flash.now[:notice] = "Title must be at least 40 characters" if @question.title.length < 40
-      flash.now[:notice] = "Description must be at least 150 characters." if @question.description.length < 150
-      flash.now[:notice] = "Title must be at least 40 characters, and description must be at least 150 characters." if @question.description.length < 150 && @question.title.length < 40
+      flash[:errors] = @question.errors.full_messages.join(". ")
+      # flash.now[:notice] = "Title must be at least 40 characters" if @question.title.length < 40
+      # flash.now[:notice] = "Description must be at least 150 characters." if @question.description.length < 150
+      # flash.now[:notice] = "Title must be at least 40 characters, and description must be at least 150 characters." if @question.description.length < 150 && @question.title.length < 40
       render :new
     end
   end

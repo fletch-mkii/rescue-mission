@@ -1,8 +1,8 @@
 <h1><%= @question.title %></h1>
 <h4><%= @question.description %></h4>
 
-<h2><%=link_to "Edit Question", edit_question_path %></h2>
-<h2><%=link_to "Delete Question", question_path, confirm: 'Are you sure?', method: :delete %></h2>
+<h2><%=link_to "Edit Question", edit_question_path(@question) %></h2>
+<h2><%=link_to "Delete Question", question_path(@question), confirm: 'Are you sure?', method: :delete %></h2>
 
 
 <h1>Answers:</h1>

@@ -31,4 +31,14 @@ feature "edit questions" do
 
     expect(page).to_not have_content(question.title)
   end
+
+  scenario "delete button removes all answers associated with that question from the database" do
+
+    visit questions_path
+    click_link question.title
+
+    click_link "Delete Question"
+
+    expect(Answer.all).to eq []
+  end
 end

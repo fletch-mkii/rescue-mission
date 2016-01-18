@@ -1,8 +1,4 @@
 class AnswersController < ApplicationController
-  def index
-    @question = Question.find(params[:id])
-    @answers = @question.answers
-  end
 
   def create
     @question = Question.find(params[:question_id])
@@ -13,10 +9,13 @@ class AnswersController < ApplicationController
       flash[:notice] = "Answer saved successfully."
       redirect_to @question
     else
-      flash[:notice] = "A username is required" if @answer.username.empty?
-      flash[:notice] = "Description must be at least 50 characters long." if @answer.description.length < 50
-      flash[:notice] = "A username is required and your description must be at least 50 characters long." if @answer.username.empty? && @answer.description.length < 50
-      redirect_to @question
+      flash[:errors] = @question.errors.full_messages.join(". ")
+      # flash[:notice] = "A username is required" if @answer.username.empty?
+      # flash[:notice] = "Description must be at least 50 characters long." if @answer.description.length < 50
+      # flash[:notice] = "A username is required and your description must be at least 50 characters long." if @answer.username.empty? && @answer.description.length < 50
+      # redirect_to @question
+      @answers = @question.answers.order(created_at: :desc)
+      render :'questions/show'
     end
   end
 
